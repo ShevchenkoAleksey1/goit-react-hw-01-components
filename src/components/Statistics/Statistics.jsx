@@ -1,18 +1,37 @@
 import PropTypes from 'prop-types';
+import {
+  StatisticsSection,
+  Titel,
+  StatList,
+  List,
+  Label,
+  Percentage,
+} from '../Statistics/Statistics.styles';
 export const Statistics = ({ title = '', stats }) => {
+  function RandomColor() {
+    return `rgb(
+    ${Math.floor(Math.random() * 256)},
+    ${Math.floor(Math.random() * 256)}, 
+    ${Math.floor(Math.random() * 256)})
+    `;
+  }
   return (
-    <section class="statistics">
-      <h2 class="title">{title}</h2>
+    <StatisticsSection class="statistics">
+      <Titel class="title">{title}</Titel>
 
-      <ul class="stat-list">
+      <StatList class="stat-list">
         {stats.map(state => (
-          <li class="item" key={state.id}>
-            <span class="label">{state.label}</span>
-            <span class="percentage">{state.percentage}</span>
-          </li>
+          <List
+            class="item"
+            key={state.id}
+            style={{ backgroundColor: RandomColor() }}
+          >
+            <Label class="label">{state.label}</Label>
+            <Percentage class="percentage">{state.percentage}%</Percentage>
+          </List>
         ))}
-      </ul>
-    </section>
+      </StatList>
+    </StatisticsSection>
   );
 };
 Statistics.propTypes = {
