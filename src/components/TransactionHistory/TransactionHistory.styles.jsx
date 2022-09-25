@@ -23,5 +23,15 @@ export const Th = styled.th`
 export const Td = styled.td`
   border: 1px solid lightgray;
   text-align: center;
+`;
+
+export const TableTr = styled.tr`
+  text-align: center;
   height: 50px;
+  :nth-child(odd) {
+    background: white;
+  }
+  :nth-child(even) {
+    background: #afbbbe;
+  }
 `;

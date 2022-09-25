@@ -3,6 +3,7 @@ import {
   TableContainer,
   Th,
   Td,
+  TableTr,
 } from '../TransactionHistory/TransactionHistory.styles';
 const TransactionHistory = ({ items }) => {
   return (
@@ -17,11 +18,11 @@ const TransactionHistory = ({ items }) => {
 
       <tbody>
         {items.map(item => (
-          <tr>
+          <TableTr key={item.id}>
             <Td>{item.type}</Td>
             <Td>{item.amount}</Td>
             <Td>{item.currency}</Td>
-          </tr>
+          </TableTr>
         ))}
       </tbody>
     </TableContainer>
